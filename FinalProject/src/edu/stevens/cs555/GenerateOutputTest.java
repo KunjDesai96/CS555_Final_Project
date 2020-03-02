@@ -70,7 +70,7 @@ class GenerateOutputTest {
 	}
 	void test_us18_siblings_should_not_marry() {
 		try {
-			assertEquals(true, GenerateOutput.us18_siblings_should_not_marry(), "User story 16 failed!");
+			assertEquals(true, GenerateOutput.us18_siblings_should_not_marry(), "User story 18 failed!");
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
