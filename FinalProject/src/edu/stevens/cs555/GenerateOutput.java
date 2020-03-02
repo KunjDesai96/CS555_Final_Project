@@ -375,9 +375,9 @@ public class GenerateOutput {
 			tagsmap.put("2", two);
 			tagsmap.put("3", three);
 			tagsmap.put("4", four);
-			String intitalInputFile = "C:\\Users\\Nihir\\Desktop\\cs555\\Project_Input(gedcom).ged";
+			String intitalInputFile = "/Users/kunj/Desktop/Stevens/CS555_Final_Project/GEDCOM/us_02_04_06_10.ged";
 			File outputFile = new File(intitalInputFile);
-			FileWriter fw = new FileWriter("C:\\Users\\Nihir\\Desktop\\cs555\\test.txt");
+			FileWriter fw = new FileWriter("/Users/kunj/Downloads/test.txt");
 
 			BufferedReader br = new BufferedReader(new FileReader(outputFile));
 			String contentLine = br.readLine();
@@ -419,7 +419,7 @@ public class GenerateOutput {
 			}
 			fw.close();
 
-			String textInputFile = "C:\\\\Users\\\\Nihir\\\\Desktop\\\\cs555\\\\test.txt";
+			String textInputFile = "/Users/kunj/Downloads/test.txt";
 			File validatedFile = new File(textInputFile);
 
 			IndividualEntry curI = null;
