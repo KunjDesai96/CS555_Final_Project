@@ -37,7 +37,7 @@ class GenerateOutputTest {
 	@Test
 	void test_us22_unique_id() {
 		try {
-			assertEquals(true,GenerateOutput.us22_unique_ids(),"User story 22 failed!");
+			assertEquals(false,GenerateOutput.us22_unique_ids(),"User story 22 failed!");
 		}
 		catch( ParseException e) {
 			e.printStackTrace();
@@ -61,6 +61,7 @@ class GenerateOutputTest {
 			e.printStackTrace();
 		}
 	}
+	@Test 
 	void test_us16_Male_last_name() {
 		try {
 			assertEquals(true, GenerateOutput.us16_Male_last_name(), "User story 16 failed!");
@@ -68,6 +69,7 @@ class GenerateOutputTest {
 			e.printStackTrace();
 		}
 	}
+	@Test 
 	void test_us18_siblings_should_not_marry() {
 		try {
 			assertEquals(true, GenerateOutput.us18_siblings_should_not_marry(), "User story 18 failed!");

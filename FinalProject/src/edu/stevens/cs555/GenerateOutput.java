@@ -375,9 +375,9 @@ public class GenerateOutput {
 			tagsmap.put("2", two);
 			tagsmap.put("3", three);
 			tagsmap.put("4", four);
-			String intitalInputFile = "/Users/kunj/Desktop/Stevens/CS555_Final_Project/GEDCOM/us_02_04_06_10.ged";
+			String intitalInputFile = "C:\\Users\\Nihir\\Desktop\\cs555\\Project_Input(gedcom).ged";
 			File outputFile = new File(intitalInputFile);
-			FileWriter fw = new FileWriter("/Users/kunj/Downloads/test.txt");
+			FileWriter fw = new FileWriter("C:\\Users\\Nihir\\Desktop\\cs555\\test.txt");
 
 			BufferedReader br = new BufferedReader(new FileReader(outputFile));
 			String contentLine = br.readLine();
@@ -419,7 +419,7 @@ public class GenerateOutput {
 			}
 			fw.close();
 
-			String textInputFile = "/Users/kunj/Downloads/test.txt";
+			String textInputFile = "C:\\\\Users\\\\Nihir\\\\Desktop\\\\cs555\\\\test.txt";
 			File validatedFile = new File(textInputFile);
 
 			IndividualEntry curI = null;
@@ -582,39 +582,39 @@ public class GenerateOutput {
 				}
 			}
 
-			System.out.println();
-			System.out.println("Family");
-			System.out.format("%-10s%-15s%-15s%-15s%-25s%-10s%-20s%-15s\n", "ID", "Married", "Divorced", "Husband ID",
-					"Husband Name", "Wife ID", "Wife Name", "Children");
-			for (Iterator<Entry<String, FamilyEntry>> iteratorFam = hfam.entrySet().iterator(); iteratorFam
-					.hasNext();) {
-				Entry<String, FamilyEntry> mapElement = iteratorFam.next();
-				String keyFam = mapElement.getKey();
-
-				FamilyEntry valueFam = mapElement.getValue();
-
-				String married = "NA";
-				if (valueFam.getMarried() != null) {
-					Date marriageDate = dateFormatGiven.parse(valueFam.getMarried());
-					married = dateFormat.format(marriageDate);
-				}
-				String divorce = "NA";
-				if (valueFam.getDivorced() != null) {
-					Date divorceDate = dateFormatGiven.parse(valueFam.getDivorced());
-					divorce = dateFormat.format(divorceDate);
-				}
-				if (valueFam.getChild().isEmpty()) {
-					System.out.format("%-10s%-15s%-15s%-15s%-25s%-10s%-20s%-15s\n", keyFam, married, divorce,
-							valueFam.getH_id(), hind.get(valueFam.getH_id().trim()).getName(), valueFam.getW_id(),
-							hind.get(valueFam.getW_id().trim()).getName(), "NA");
-				} else {
-					System.out.format("%-10s%-15s%-15s%-15s%-25s%-10s%-20s%-15s\n", keyFam, married, divorce,
-							valueFam.getH_id(), hind.get(valueFam.getH_id().trim()).getName(), valueFam.getW_id(),
-							hind.get(valueFam.getW_id().trim()).getName(), valueFam.getChild());
-				}
-			}
-
-			System.out.println("");
+//			System.out.println();
+//			System.out.println("Family");
+//			System.out.format("%-10s%-15s%-15s%-15s%-25s%-10s%-20s%-15s\n", "ID", "Married", "Divorced", "Husband ID",
+//					"Husband Name", "Wife ID", "Wife Name", "Children");
+//			for (Iterator<Entry<String, FamilyEntry>> iteratorFam = hfam.entrySet().iterator(); iteratorFam
+//					.hasNext();) {
+//				Entry<String, FamilyEntry> mapElement = iteratorFam.next();
+//				String keyFam = mapElement.getKey();
+//
+//				FamilyEntry valueFam = mapElement.getValue();
+//
+//				String married = "NA";
+//				if (valueFam.getMarried() != null) {
+//					Date marriageDate = dateFormatGiven.parse(valueFam.getMarried());
+//					married = dateFormat.format(marriageDate);
+//				}
+//				String divorce = "NA";
+//				if (valueFam.getDivorced() != null) {
+//					Date divorceDate = dateFormatGiven.parse(valueFam.getDivorced());
+//					divorce = dateFormat.format(divorceDate);
+//				}
+//				if (valueFam.getChild().isEmpty()) {
+//					System.out.format("%-10s%-15s%-15s%-15s%-25s%-10s%-20s%-15s\n", keyFam, married, divorce,
+//							valueFam.getH_id(), hind.get(valueFam.getH_id().trim()).getName(), valueFam.getW_id(),
+//							hind.get(valueFam.getW_id().trim()).getName(), "NA");
+//				} else {
+//					System.out.format("%-10s%-15s%-15s%-15s%-25s%-10s%-20s%-15s\n", keyFam, married, divorce,
+//							valueFam.getH_id(), hind.get(valueFam.getH_id().trim()).getName(), valueFam.getW_id(),
+//							hind.get(valueFam.getW_id().trim()).getName(), valueFam.getChild());
+//				}
+//			}
+//
+//			System.out.println("");
 			
 			//====================================================== Check all user stories here ======================================================			
 			us02_birth_b4_marriage();
