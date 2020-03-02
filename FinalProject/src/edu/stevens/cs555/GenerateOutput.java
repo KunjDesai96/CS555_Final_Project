@@ -223,8 +223,7 @@ public class GenerateOutput {
 		}
 
 		/**
-		 * 
-			 * Author: Kunj Desai
+		 * Author: Kunj Desai
 			 * ID: US10
 			 * Name: Marriage after 14
 			 * Description: Marriage should be at least 14 years after birth of both spouses (parents must be at least 14 years old)
@@ -282,7 +281,8 @@ public class GenerateOutput {
 			else
 				return false;
 		}
-				/**
+				
+		/**
 		 * Author: Dhruval Thakkar
 			 * ID: US03
 			 * Name: Birth before Death
