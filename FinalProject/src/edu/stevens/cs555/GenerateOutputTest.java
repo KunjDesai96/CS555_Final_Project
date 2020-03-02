@@ -61,6 +61,20 @@ class GenerateOutputTest {
 			e.printStackTrace();
 		}
 	}
+	void test_us16_Male_last_name() {
+		try {
+			assertEquals(true, GenerateOutput.us16_Male_last_name(), "User story 16 failed!");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
+	void test_us18_siblings_should_not_marry() {
+		try {
+			assertEquals(true, GenerateOutput.us18_siblings_should_not_marry(), "User story 16 failed!");
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+	}
 
 
 }

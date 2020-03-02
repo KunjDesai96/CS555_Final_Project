@@ -275,6 +275,74 @@ public class GenerateOutput {
 			else
 				return false;
 		}
+		
+		
+		/**
+		 * Author: Nihir Patel
+			 * ID: US18
+			 * Name: Siblings should not marry
+			 * Description: siblings should not marry
+			 * Date created: Feb 27, 20201:23:06 AM
+			 * @throws ParseException 
+		 */
+		public static boolean us18_siblings_should_not_marry () throws ParseException
+		{
+			boolean flag = true;
+			for (Iterator<Entry<String, FamilyEntry>> iteratorFam = hfam.entrySet().iterator(); iteratorFam
+					.hasNext();) {
+				Entry<String, FamilyEntry> famMapElement = iteratorFam.next();
+				String keyFam = famMapElement.getKey().trim();
+				FamilyEntry famValue = famMapElement.getValue();
+				String H_id=famValue.getH_id().trim();
+				String W_id=famValue.getW_id().trim();
+				if(hind.get(H_id).getChild().size()!=0 && hind.get(W_id).getChild().size()!=0) {
+					if(hind.get(H_id).getChild().equals(hind.get(W_id).getChild())) {
+						flag=false;
+						String failStr = "us18_siblings_should_not_marry: "+hind.get(H_id).getName().trim()+" should not marry his sibling "+hind.get(W_id).getName().trim();
+						failures.add(failStr);
+						failuresFlag = true;
+					}
+				}		
+				}
+			
+			
+			return flag;
+		}
+		/**
+		 * Author: Nihir Patel
+			 * ID: US16
+			 * Name: Male Last name
+			 * Description: All male members of a family should have the same last name
+			 * Date created: Feb 27, 20201:23:06 AM
+			 * @throws ParseException 
+		 */
+		public static boolean us16_Male_last_name () throws ParseException
+		{
+			boolean flag = true;
+			for (Iterator<Entry<String, FamilyEntry>> iteratorFam = hfam.entrySet().iterator(); iteratorFam
+					.hasNext();) {
+				Entry<String, FamilyEntry> famMapElement = iteratorFam.next();
+				String keyFam = famMapElement.getKey().trim();
+				FamilyEntry famValue = famMapElement.getValue();
+				String famlastname=hind.get(famValue.getH_id().trim()).getName().split("/")[1];
+				for (Iterator<String> it = famValue.getChild().iterator(); it.hasNext(); ) {
+					IndividualEntry indValue=  hind.get(it.next().trim());
+					String indlastname=indValue.getName().split("/")[1];
+					
+					if(indValue.getGender().trim().equals("M") && !indlastname.equals(famlastname)) {
+						flag=false;
+						String failStr = "us16_Male_last_name: "+indValue.getName().trim()+"  and "+hind.get(famValue.getH_id().trim()).getName()+" does not have same last name!";
+						failures.add(failStr);
+						failuresFlag = true;
+					}
+				}
+				
+			}
+			return flag;
+			
+		}
+		
+		
 //====================================================== End of user stories ======================================================
 
 	/**
@@ -307,9 +375,9 @@ public class GenerateOutput {
 			tagsmap.put("2", two);
 			tagsmap.put("3", three);
 			tagsmap.put("4", four);
-			String intitalInputFile = "/Users/kunj/Desktop/Stevens/CS555_Final_Project/GEDCOM/us_02_04_06_10.ged";
+			String intitalInputFile = "C:\\Users\\Nihir\\Desktop\\cs555\\Project_Input(gedcom).ged";
 			File outputFile = new File(intitalInputFile);
-			FileWriter fw = new FileWriter("/Users/kunj/Downloads/test.txt");
+			FileWriter fw = new FileWriter("C:\\Users\\Nihir\\Desktop\\cs555\\test.txt");
 
 			BufferedReader br = new BufferedReader(new FileReader(outputFile));
 			String contentLine = br.readLine();
@@ -351,7 +419,7 @@ public class GenerateOutput {
 			}
 			fw.close();
 
-			String textInputFile = "/Users/kunj/Downloads/test.txt";
+			String textInputFile = "C:\\\\Users\\\\Nihir\\\\Desktop\\\\cs555\\\\test.txt";
 			File validatedFile = new File(textInputFile);
 
 			IndividualEntry curI = null;
@@ -554,6 +622,8 @@ public class GenerateOutput {
 			us22_unique_ids();
 			us06_divorce_b4_death();	
 			us10_marriage_after_14();
+			us18_siblings_should_not_marry();
+			us16_Male_last_name ();
 			if(failuresFlag)
 			 {
 				 System.out.println("There are following errors: ");
