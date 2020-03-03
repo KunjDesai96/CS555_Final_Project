@@ -350,16 +350,22 @@ public class GenerateOutput {
 					if (valueFam.getMarried() != null) {
 						Date marriageDate = dateFormatGiven.parse(valueFam.getMarried());
 						married = dateFormat.format(marriageDate);
-					}				
-					if (valueFam.getH_id().equals(valueInd.getId()) && valueInd.getDeath() != null) {
-						Date deathDate = dateFormatGiven.parse(valueInd.getBirthday());
-						death = dateFormat.format(deathDate);
-					}
-					if	(valueFam.getW_id().equals(valueInd.getId()) && valueInd.getBirthday() != null) {
-						Date deathDate = dateFormatGiven.parse(valueInd.getBirthday());
-						death = dateFormat.format(deathDate);
-					}
-					if(!death.equals("NA") || death.compareTo(married) < 0 )
+					}	
+					if (valueInd.getDeath() != null){
+						Date deathDate = dateFormatGiven.parse(valueInd.getDeath());
+					 	death = dateFormat.format(deathDate);
+
+					}			
+					// if (valueFam.getH_id().equals(valueInd.getId()) && valueInd.getDeath() != null) {
+					// 	Date deathDate = dateFormatGiven.parse(valueInd.getBirthday());
+					// 	death = dateFormat.format(deathDate);
+					// }
+					// if	(valueFam.getW_id().equals(valueInd.getId()) && valueInd.getBirthday() != null) {
+					// 	Date deathDate = dateFormatGiven.parse(valueInd.getBirthday());
+					// 	death = dateFormat.format(deathDate);
+					// }
+					// if(!death.equals("NA") || death.compareTo(married) < 0 )
+					if((valueInd.getId().equals(valueFam.getH_id()) || valueInd.getId().equals(valueFam.getW_id())) && (death.compareTo(married) < 0 || married == null || death == null))
 					{
 						String failStr = "ERROR: INDIVIDUAL: US05: "+valueInd.getId() + ": Marriage date "+married+ " occurs after death date "+ death;	
 						failures.add(failStr);
